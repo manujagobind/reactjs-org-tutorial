@@ -50,7 +50,7 @@ class Game extends React.Component {
             history: [{
                 squares: Array(9).fill(null)
             }],
-            xIsNext: false
+            xIsNext: true
         };
     }
 
@@ -68,7 +68,6 @@ class Game extends React.Component {
             ]),
             xIsNext: !this.state.xIsNext
         });
-        console.log(this.state);
     }
 
     calculateWinner(squares) {
@@ -101,7 +100,7 @@ class Game extends React.Component {
         if (winner) {
             status = 'Winner ' + winner;
         } else {
-            status = 'Next player: ' + (this.props.xIsNext ? 'X' : 'O');
+            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
 
         return (
